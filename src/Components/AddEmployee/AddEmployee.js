@@ -1,13 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-function AddEmployee({ handleSubmit }) {
-  const [employeeObject, setEmployeeObject] = useState({
-    name: "",
-    role: "",
-    employmentStatus: "",
-    reportingLine: "",
-  });
-
+function AddEmployee({ handleSubmit, employeeObject, setEmployeeObject }) {
   function handleName(e) {
     console.log(e.target.value);
     setEmployeeObject({ ...employeeObject, name: e.target.value });

@@ -3,21 +3,15 @@ import List from "../List/List";
 import AddEmployee from "../AddEmployee/AddEmployee";
 import "./App.css";
 
-/** creating an example database of ids & values to display in front end for Admin view */
-// const userList = [
-//   { id: 1, name: "Thom", instrument: "guitar", vibe: "tetchy" },
-//   { id: 2, name: "Jonny", instrument: "anything", vibe: "smooth" },
-//   { id: 3, name: "Ed", instrument: "guitar", vibe: "mellow" },
-//   { id: 4, name: "Colin", instrument: "bass guitar", vibe: "focused" },
-//   { id: 5, name: "Phil", instrument: "drums", vibe: "metronomic" },
-// ];
-
-/** Declares column name values to pass down as props to table component */
-//const colNames = ["id", "name", "instrument", "vibe"];
-
 function App() {
   const [employees, setEmployees] = useState([]);
   const [newEmployee, setNewEmployee] = useState({});
+  const [employeeObject, setEmployeeObject] = useState({
+    name: "",
+    role: "",
+    employmentStatus: "",
+    reportingLine: "",
+  });
 
   /**useEffect function GET 
    * Function to collect all current database entries
@@ -59,29 +53,25 @@ function App() {
       if (employee.success) {
         console.log("POST was success");
       }
-      setEmployees([...employees, newEmployee]);
+      setNewEmployee([...employees, newEmployee]);
     }
 
-    addNewEmployee(newEmployee);
+    addNewEmployee();
     console.log("addNewEmployee useEffect has worked");
-  }, []);
-
-  /** handleSubmit takes in the employeeObject created by the users in AddEmployee and updates the state variable newEmployee
-   *
-   * @param {*} employeeObject
+  }, [newEmployee]);
+  /** This dependency keeps causing issue- tried newEmployee as dependency (waiting for a new employee/ handleSubmit to trigger post but then crashes back end)
    */
-  // function handleSubmit(employeeObject) {
-  //   console.log("You clicked postObject");
-  //   setNewEmployee(employeeObject);
-  //   console.log("handleSubmit postObject: ", employeeObject);
-  // }
 
   return (
     <div>
       <h1>User.Management</h1>
       <AddEmployee />
       <br />
-      <List employees={employees}></List>
+      <List
+        employees={employees}
+        employeeObject={employeeObject}
+        setEmployeeObject={setEmployeeObject}
+      ></List>
     </div>
   );
 }
