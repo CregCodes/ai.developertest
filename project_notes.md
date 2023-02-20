@@ -51,14 +51,16 @@ Node.js as backend implementations via a RESTful API
 
 - Created Back End implementatons
 
-  - Set up Back End Repo:
-  - Repo Link: https://github.com/CregCodes/User_Management_Test_BE.git
+### Back End
 
-  - Created PostGresSQL Database
+- Set up Back End Repo:
+- Repo Link: https://github.com/CregCodes/User_Management_Test_BE.git
 
-    - Pool/ PostGres URL added to a .env file
+- Created PostGresSQL Database
 
-    PostGres connection: postgres://tajflcfz:ibLX6nXVjA_7UhIeuFRNuslNDl-uM7bV@manny.db.elephantsql.com/tajflcfz
+  - Pool/ PostGres URL added to a .env file
+
+  PostGres connection: postgres://tajflcfz:ibLX6nXVjA_7UhIeuFRNuslNDl-uM7bV@manny.db.elephantsql.com/tajflcfz
 
 Testing
 
